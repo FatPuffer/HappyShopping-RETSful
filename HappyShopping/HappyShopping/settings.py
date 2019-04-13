@@ -87,7 +87,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': 3306,
         # 修改数据库引擎为INNODB，在mysql5.5之前的版本默认使用的是MyISAM引擎
-        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
+        'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
 }
 
