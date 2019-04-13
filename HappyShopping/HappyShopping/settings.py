@@ -75,8 +75,14 @@ WSGI_APPLICATION = 'HappyShopping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'happy_shop',
+        'USER': 'root',
+        'PASSWORD': '120728lyy',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+        # 修改数据库引擎为INNODB，在mysql5.5之前的版本默认使用的是MyISAM引擎
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
 }
 
