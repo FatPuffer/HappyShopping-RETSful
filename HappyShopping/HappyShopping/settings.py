@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'users',
     'goods',
     'trade',
-    'user_operation'
+    'user_operation',
+    'xadmin',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,7 @@ WSGI_APPLICATION = 'HappyShopping.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'happy_shop',
+        'NAME': 'happyshopping',
         'USER': 'root',
         'PASSWORD': '120728lyy',
         'HOST': '127.0.0.1',

@@ -13,7 +13,7 @@ class GoodsCategory(models.Model):
         (3, "三级类目")
     )
     
-    # help_text: 
+    
     name = models.CharField(default='', max_length=30, verbose_name='类别名', help_text='类别名')
     code = models.CharField(default='', max_length=30, verbose_name='类别名code', help_text='类别名code')
     desc = models.TextField(default='', verbose_name='类别描述', help_text='类别描述')
@@ -34,14 +34,16 @@ class GoodsCategory(models.Model):
 
 class GoodsCategoryBrand(models.Model):
     """品牌名"""
+    category = models.ForeignKey(GoodsCategory, related_name='brands', null=True, blank=True, verbose_name="商品类目")
     name = models.CharField(default='', max_length=30, verbose_name='品牌名', help_text='品牌名')
     desc = models.TextField(default='', max_length=300, verbose_name='品牌描述', help_text='品牌描述')
-    image = models.ImageField(max_length=300, upload_to='brands')
+    image = models.ImageField(max_length=300, upload_to='brands/')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
     
     class Meta:
         verbose_name = '品牌'
         verbose_name_plural = verbose_name
+        db_table = "goods_goodsbrand"
 
     def __str__(self):
         return self.name
@@ -75,11 +77,22 @@ class Goods(models.Model):
         return self.name
 
 
+class IndexAd(models.Model):
+    category = models.ForeignKey(GoodsCategory, related_name='category',verbose_name="商品类目")
+    goods = models.ForeignKey(Goods, related_name='goods')
+
+    class Meta:
+        verbose_name = '首页商品类别广告'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.goods.name
+
+
 class GoodsImage(models.Model):
     """商品详情页轮播图"""
     goods = models.ForeignKey(Goods, verbose_name="商品", related_name="images")
     image = models.ImageField(upload_to="", verbose_name="图片", null=True, blank=True)
-    image_url = models.CharField(max_length=300, null=True, blank=True, verbose_name="图片url")
     add_time = models.DateTimeField(verbose_name="添加时间")
 
     class Meta:
@@ -105,5 +118,18 @@ class GoodsBanner(models.Model):
         return self.goods.name
 
 
+class HotSearchWords(models.Model):
+    """
+    热搜词
+    """
+    keywords = models.CharField(default="", max_length=20, verbose_name="热搜词")
+    index = models.IntegerField(default=0, verbose_name="排序")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
+    class Meta:
+        verbose_name = '热搜词'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.keywords
 
