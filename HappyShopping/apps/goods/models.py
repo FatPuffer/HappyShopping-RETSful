@@ -14,12 +14,12 @@ class GoodsCategory(models.Model):
     )
     
     # help_text: 
-    name = models.CharField(default='', max_length=30, verbose_name='类别名'， help_text='类别名')
-    code = models.CharField(default='', max_length=30, verbose_name='类别名code'， help_text='类别名code')
-    desc = models.TextField(default='', verbose_name='类别描述'， help_text='类别描述')
-    category_type = models.IntegerField(choice=CATEGORY_TYPE, verbose_name='类目级别'， help_text='类目级别')
+    name = models.CharField(default='', max_length=30, verbose_name='类别名', help_text='类别名')
+    code = models.CharField(default='', max_length=30, verbose_name='类别名code', help_text='类别名code')
+    desc = models.TextField(default='', verbose_name='类别描述', help_text='类别描述')
+    category_type = models.IntegerField(choices=CATEGORY_TYPE, verbose_name='类目级别', help_text='类目级别')
     # 自关联，方便类目级别扩展，不需要按照类目级别定义固定数目的模型类
-    parent_category = models.Foreignkey('self', null=True, blank=True, verbose_name='父类目级别', related_name='sub_cat')
+    parent_category = models.ForeignKey('self', null=True, blank=True, verbose_name='父类目级别', related_name='sub_cat')
     # 是否显示在商品导航栏
     is_tab = models.BooleanField(default=False, verbose_name='是否导航', help_text='是否导航')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
@@ -34,8 +34,8 @@ class GoodsCategory(models.Model):
 
 class GoodsCategoryBrand(models.Model):
     """品牌名"""
-    name = models.CharField(default='', max_length=30, verbose_name='品牌名'， help_text='品牌名')
-    desc = models.TextField(default='', max_length=300, verbose_name='品牌描述'， help_text='品牌描述')
+    name = models.CharField(default='', max_length=30, verbose_name='品牌名', help_text='品牌名')
+    desc = models.TextField(default='', max_length=300, verbose_name='品牌描述', help_text='品牌描述')
     image = models.ImageField(max_length=300, upload_to='brand/images/')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
     
@@ -74,7 +74,6 @@ class Goods(models.Model):
         return self.name
 
 
-
 class GoodsImage(models.Model):
     """商品详情页轮播图"""
     goods = models.ForeignKey(Goods, verbose_name="商品", related_name="images")
@@ -92,7 +91,7 @@ class GoodsImage(models.Model):
 
 class GoodsBanner(models.Model):
     """商品轮播图"""
-    goods =  models.ForeignKey(Goods, verbose_name="商品")
+    goods = models.ForeignKey(Goods, verbose_name="商品")
     image = models.ImageField(upload_to='banner', verbose_name="轮播图")
     index = models.IntegerField(default=0, verbose_name="添加时间")
     add_time = models.DateTimeField(verbose_name="添加时间")
