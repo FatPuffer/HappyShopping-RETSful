@@ -36,7 +36,7 @@ class GoodsCategoryBrand(models.Model):
     """品牌名"""
     name = models.CharField(default='', max_length=30, verbose_name='品牌名', help_text='品牌名')
     desc = models.TextField(default='', max_length=300, verbose_name='品牌描述', help_text='品牌描述')
-    image = models.ImageField(max_length=300, upload_to='brand/images/')
+    image = models.ImageField(max_length=300, upload_to='brands')
     add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
     
     class Meta:
@@ -53,7 +53,8 @@ class Goods(models.Model):
     goods_sn = models.CharField(max_length=50, verbose_name="商品唯一货号")
     name = models.CharField(max_length=300, verbose_name="商品名")
     goods_brief = models.TextField(max_length=500, verbose_name="商品简介")
-    goods_desc = UEditorField(imagePath="goods/images/", width=1000, height=300, filePath='goods/files/', default='' ,verbose_name="内容")
+    goods_desc = UEditorField(imagePath="goods/images/", width=1000, height=300, filePath='goods/files/',
+                              default='', verbose_name="内容")
     click_num = models.IntegerField(default=0, verbose_name="点击量")
     sold_num = models.IntegerField(default=0, verbose_name="销售量")
     fav_num = models.IntegerField(default=0, verbose_name="收藏量")
@@ -61,7 +62,7 @@ class Goods(models.Model):
     market_price = models.FloatField(default=0, verbose_name="市场价格")
     shop_price = models.FloatField(default=0, verbose_name="本店价格")
     ship_free = models.BooleanField(verbose_name="是否承担运费")
-    goods_front_image = models.ImageField(upload_to='', null=True, blank=True, verbose_name="封面图")
+    goods_front_image = models.ImageField(upload_to='goods/images/', null=True, blank=True, verbose_name="封面图")
     is_new = models.BooleanField(default=False, verbose_name="是否是新品")
     is_hot = models.BooleanField(default=False, verbose_name="是否热销")
     add_time = models.DateTimeField(verbose_name="添加时间")
