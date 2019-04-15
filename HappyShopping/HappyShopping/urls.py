@@ -17,6 +17,7 @@ from django.conf.urls import url
 import xadmin
 from HappyShopping.settings import MEDIA_ROOT
 from django.views.static import serve
+from rest_framework.documentation import include_docs_urls  # 文档
 
 from goods.views_base import GoodsListView
 
@@ -27,4 +28,6 @@ urlpatterns = [
     # 商品列表页
     url(r'goods/$', GoodsListView.as_view(), name='goods-list')
 
+    # 文档接口
+    url(r'docs/', include_docs_urls(title='乐购平台'))
 ]
