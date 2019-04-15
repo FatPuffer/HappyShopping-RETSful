@@ -52,7 +52,7 @@ class GoodsCategoryBrand(models.Model):
 class Goods(models.Model):
     """商品"""
     category = models.ForeignKey(GoodsCategory, verbose_name="商品类目")
-    goods_sn = models.CharField(max_length=50, verbose_name="商品唯一货号")
+    goods_sn = models.CharField(max_length=50, default='', verbose_name="商品唯一货号")
     name = models.CharField(max_length=300, verbose_name="商品名")
     goods_brief = models.TextField(max_length=500, verbose_name="商品简介")
     goods_desc = UEditorField(imagePath="goods/images/", width=1000, height=300, filePath='goods/files/',
@@ -63,11 +63,11 @@ class Goods(models.Model):
     goods_num = models.IntegerField(default=0, verbose_name="库存量")
     market_price = models.FloatField(default=0, verbose_name="市场价格")
     shop_price = models.FloatField(default=0, verbose_name="本店价格")
-    ship_free = models.BooleanField(verbose_name="是否承担运费")
+    ship_free = models.BooleanField(default=True, verbose_name="是否承担运费")
     goods_front_image = models.ImageField(upload_to='goods/images/', null=True, blank=True, verbose_name="封面图")
     is_new = models.BooleanField(default=False, verbose_name="是否是新品")
     is_hot = models.BooleanField(default=False, verbose_name="是否热销")
-    add_time = models.DateTimeField(verbose_name="添加时间")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
         verbose_name = '商品'
@@ -93,7 +93,7 @@ class GoodsImage(models.Model):
     """商品详情页轮播图"""
     goods = models.ForeignKey(Goods, verbose_name="商品", related_name="images")
     image = models.ImageField(upload_to="", verbose_name="图片", null=True, blank=True)
-    add_time = models.DateTimeField(verbose_name="添加时间")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
         verbose_name = '商品图片'
@@ -108,7 +108,7 @@ class GoodsBanner(models.Model):
     goods = models.ForeignKey(Goods, verbose_name="商品")
     image = models.ImageField(upload_to='banner', verbose_name="轮播图")
     index = models.IntegerField(default=0, verbose_name="添加时间")
-    add_time = models.DateTimeField(verbose_name="添加时间")
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
     class Meta:
         verbose_name = '轮播商品'
