@@ -13,21 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 import xadmin
 from HappyShopping.settings import MEDIA_ROOT
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls  # 文档
 
-from goods.views_base import GoodsListView
+# from goods.views_base import GoodsListView
+from goods.views import GoodsListView
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {"document": MEDIA_ROOT}),
+    url(r'^api-auth/', include('rest_framework.urls')),  # 登录
 
     # 商品列表页
-    url(r'goods/$', GoodsListView.as_view(), name='goods-list')
+    url(r'goods/$', GoodsListView.as_view(), name='goods-list'),
 
     # 文档接口
-    url(r'docs/', include_docs_urls(title='乐购平台'))
+    url(r'docs/', include_docs_urls(title='乐购平台')),
 ]
