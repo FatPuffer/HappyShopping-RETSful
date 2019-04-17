@@ -53,11 +53,31 @@ from .models import Goods
  #    def get(self, request, format=None):
  #        return self.list(request, *args, **kwargs)
 
+from rest_framework.pagination import PageNumberPagination
+
+
+class GoodsPagination(PageNumberPagination):
+    page_size = 10  # 每页显示10条数据
+    # 前端通过page_size参数动态指定向后台获取多少条数据，后台根据数目计算页数，返回相应数据
+    # 如：http://127.0.0.1:8000/goods/?p=2&page_size=20
+    page_size_query_param = 'page_size'
+    page_query_param = 'p'  # 查询参数显示信息
+    max_page_size = 100  # 最多显示100页
+
 
 class GoodsListView(generics.ListAPIView):
     """
     商品列表页
     """
+
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
+
+    pagination_class = GoodsPagination
+
+
+
+
+
+
 
