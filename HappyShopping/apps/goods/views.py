@@ -1,7 +1,8 @@
 from .serializers import GoodsSerializer
 from rest_framework.views import APIView
+from rest_framework import mixins
+from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import status
 
 from .models import Goods
 
@@ -25,13 +26,38 @@ from .models import Goods
  #        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
  #
 
-class GoodsListView(APIView):
-    """
-    List all snippets, or create a new snippet.
-    """
-    def get(self, request, format=None):
-        goods = Goods.objects.all()[:10]
-        goods_serializer = GoodsSerializer(goods, many=True)
-        return Response(goods_serializer.data)
+ #class GoodsListView(APIView):
+ #    """
+ #    List all snippets, or create a new snippet.
+ #    """
+ #    def get(self, request, format=None):
+ #        goods = Goods.objects.all()[:10]
+ #        goods_serializer = GoodsSerializer(goods, many=True)
+ #        return Response(goods_serializer.data)
+ #
 
+
+# generics.py
+# class ListAPIView(mixins.ListModelMixin, GenericAPIView)
+# class CreateAPIView(mixins.CreateModelMixin, GenericAPIView)
+# .....更多见源码
+
+
+ #class GoodsListView(mixins.ListModelMixin, generics.GenericAPIView):
+ #    """
+ #    商品列表页
+ #    """
+ #    queryset = Goods.objects.all()[:10]
+ #    serializer_class = GoodsSerializer
+ #
+ #    def get(self, request, format=None):
+ #        return self.list(request, *args, **kwargs)
+
+
+class GoodsListView(generics.ListAPIView):
+    """
+    商品列表页
+    """
+    queryset = Goods.objects.all()
+    serializer_class = GoodsSerializer
 
