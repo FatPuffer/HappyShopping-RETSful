@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from goods.models import Goods
+from goods.models import Goods, GoodsCategory
 
 
  #class GoodsSerializer(serializers.Serializer):
@@ -16,9 +16,18 @@ from goods.models import Goods
  #        return Goods.objects.create(**validated)
  #
 
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GoodsCategory
+        fields = "__all__"
+
+
 class GoodsSerializer(serializers.ModelSerializer):
+    # Goods模型类的外键，实现序列化嵌套
+    category = CategorySerializer()
     class Meta:
         model = Goods
-        fields = ('name', 'click_num', 'market_price', 'add_time')
+        fields = "__all__"
 
 
