@@ -1,7 +1,24 @@
 from rest_framework import serializers
 
+from goods.models import Goods
 
-class GoodsSerializer(serializers.Serializer):
-    name = serializers.CharField(required=True, max_length=100)
-    click_num = serializers.IntegerField(default=0)
-    goods_front_image = serializers.ImageField()
+
+ #class GoodsSerializer(serializers.Serializer):
+ #    name = serializers.CharField(required=True, max_length=100)
+ #    click_num = serializers.IntegerField(default=0)
+ #    goods_front_image = serializers.ImageField()
+ #
+ #    # drf 默认会将所有字段值放在 validated_data 参数中
+ #    def create(self, validated_data):
+ #        """
+ #        创建对象
+ #        """
+ #        return Goods.objects.create(**validated)
+ #
+
+class GoodsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Goods
+        fields = ('name', 'click_num', 'market_price', 'add_time')
+
+
