@@ -18,17 +18,25 @@ import xadmin
 from HappyShopping.settings import MEDIA_ROOT
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls  # 文档
+from rest_framework.routers import DefaultRouter
 
 # from goods.views_base import GoodsListView
-from goods.views import GoodsListView
+# from goods.views import GoodsListView
+from goods.views import GoodsListViewSet
+
+router = DefaultRouter()
+
+# 配置url
+router.register(r'goods', GoodsListViewSet)
+
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {"document": MEDIA_ROOT}),
-    url(r'^api-auth/', include('rest_framework.urls')),  # 登录
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),  # 登录
 
-    # 商品列表页
-    url(r'goods/$', GoodsListView.as_view(), name='goods-list'),
+    # 路由注册
+    url(r'^', include(router.urls)),
 
     # 文档接口
     url(r'docs/', include_docs_urls(title='乐购平台')),
