@@ -16,8 +16,33 @@ from goods.models import Goods, GoodsCategory
 #        return Goods.objects.create(**validated)
 #
 
+class CategorySerializer3(serializers.ModelSerializer):
+    """
+    商品类别序列化
+    """
+
+    class Meta:
+        model = GoodsCategory
+        fields = "__all__"
+
+
+class CategorySerializer2(serializers.ModelSerializer):
+    """
+    商品类别序列化
+    """
+    sub_cat = CategorySerializer3(many=True)
+
+    class Meta:
+        model = GoodsCategory
+        fields = "__all__"
+
 
 class CategorySerializer(serializers.ModelSerializer):
+    """
+    商品类别序列化
+    """
+    # sub_cat = CategorySerializer2(many=True)
+
     class Meta:
         model = GoodsCategory
         fields = "__all__"
@@ -30,5 +55,4 @@ class GoodsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goods
         fields = "__all__"
-
 

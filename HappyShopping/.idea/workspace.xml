@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b6acf0d-ce71-4fa1-b05a-cd8399f3da73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/goods/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HappyShopping/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HappyShopping/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HappyShopping/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HappyShopping/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HappyShopping/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="253">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#647#688#0" expanded="true" />
               </folding>
@@ -48,13 +47,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/goods/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="99" column="57" selection-start-line="99" selection-start-column="57" selection-end-line="99" selection-end-column="57" />
+            <state relative-caret-position="294">
+              <caret line="108" column="37" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="37" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#1#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/apps/goods/filters.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -75,17 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HappyShopping/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="3322">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/goods/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+            <state relative-caret-position="308">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -96,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-733">
-              <caret line="1626" column="30" lean-forward="true" selection-start-line="1626" selection-start-column="30" selection-end-line="1626" selection-end-column="30" />
+            <state relative-caret-position="34914">
+              <caret line="1626" column="30" selection-start-line="1626" selection-start-column="30" selection-end-line="1626" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -133,11 +132,11 @@
         <option value="$PROJECT_DIR$/apps/db_tools/import_goods_data.py" />
         <option value="$PROJECT_DIR$/apps/goods/views_base.py" />
         <option value="$PROJECT_DIR$/apps/goods/serializer.py" />
-        <option value="$PROJECT_DIR$/HappyShopping/urls.py" />
-        <option value="$PROJECT_DIR$/apps/goods/serializers.py" />
         <option value="$PROJECT_DIR$/HappyShopping/settings.py" />
         <option value="$PROJECT_DIR$/apps/goods/filters.py" />
+        <option value="$PROJECT_DIR$/HappyShopping/urls.py" />
         <option value="$PROJECT_DIR$/apps/goods/views.py" />
+        <option value="$PROJECT_DIR$/apps/goods/serializers.py" />
       </list>
     </option>
   </component>
@@ -153,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,6 +183,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -310,17 +309,17 @@
       <workItem from="1555503202927" duration="1204000" />
       <workItem from="1555587250559" duration="9176000" />
       <workItem from="1556024740155" duration="3765000" />
+      <workItem from="1556032274807" duration="2192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32088000" />
+    <option name="totallyTimeSpent" value="34280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1851" height="863" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5705329" visible="true" weight="0.120909594" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5705329" visible="true" weight="0.12201886" />
       <window_info id="Structure" order="1" sideWeight="0.42946708" side_tool="true" weight="0.11980033" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -333,8 +332,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5019412" side_tool="true" weight="0.22783083" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4980588" visible="true" weight="0.22783083" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5024958" side_tool="true" weight="0.22783083" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49750414" weight="0.22783083" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3287858" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -537,20 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-733">
-          <caret line="1626" column="30" lean-forward="true" selection-start-line="1626" selection-start-column="30" selection-end-line="1626" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/rest_framework/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14285">
-          <caret line="932" column="58" lean-forward="true" selection-start-line="932" selection-start-column="58" selection-end-line="932" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/rest_framework/generics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-621">
@@ -592,49 +577,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/goods/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HappyShopping/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HappyShopping/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="e#647#688#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/goods/filters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HappyShopping/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3322">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34914">
+          <caret line="1626" column="30" selection-start-line="1626" selection-start-column="30" selection-end-line="1626" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Djando-RESTFul/lib/python3.6/site-packages/rest_framework/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="932" column="58" lean-forward="true" selection-start-line="932" selection-start-column="58" selection-end-line="932" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HappyShopping/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#647#688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/goods/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="99" column="57" selection-start-line="99" selection-start-column="57" selection-end-line="99" selection-end-column="57" />
+        <state relative-caret-position="294">
+          <caret line="108" column="37" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="37" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#1#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/goods/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

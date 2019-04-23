@@ -22,12 +22,15 @@ from rest_framework.routers import DefaultRouter
 
 # from goods.views_base import GoodsListView
 # from goods.views import GoodsListView
-from goods.views import GoodsListViewSet
+from goods.views import GoodsListViewSet, CategoryViewSet
 
 router = DefaultRouter()
 
-# 配置url
-router.register(r'goods', GoodsListViewSet)
+# 配置goods url
+router.register(r'goods', GoodsListViewSet, base_name="goods")
+
+# 配置category url
+router.register(r'categorys', CategoryViewSet, base_name="categorys")
 
 
 urlpatterns = [

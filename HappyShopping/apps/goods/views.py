@@ -1,10 +1,10 @@
-from .serializers import GoodsSerializer
 from rest_framework.views import APIView
 from rest_framework import mixins, viewsets
 from rest_framework import generics
 from rest_framework.response import Response
 
-from .models import Goods
+from .serializers import GoodsSerializer, CategorySerializer
+from .models import Goods, GoodsCategory
 
 
 # class GoodsListView(APIView):
@@ -105,6 +105,14 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     # 排序字段
     ordering_fields = ('sold_num', 'add_time')
 
+
+class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    list:
+        商品分类列表数据
+    """
+    queryset = GoodsCategory.objects.all()
+    serializer_class = CategorySerializer
 
 
 
