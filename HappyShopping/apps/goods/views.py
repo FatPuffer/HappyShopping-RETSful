@@ -77,15 +77,34 @@ class GoodsPagination(PageNumberPagination):
 #     pagination_class = GoodsPagination
 
 
+from django_filters.rest_framework import DjangoFilterBackend
+from goods.filters import GoodsFilter
+from rest_framework import filters
+
+
 class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
-    商品列表页
+    商品列表页，分页，搜索，过滤，排序
     """
-
+    # 获取数据对象
     queryset = Goods.objects.all()
+    # 序列化
     serializer_class = GoodsSerializer
-
+    # 分页
     pagination_class = GoodsPagination
+    # 过滤·搜索              django 过滤       rest_framework 搜索     rest_framework 排序
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    # 过滤器
+    filter_class = GoodsFilter
+    # 搜索字段
+    # ^：以该字段开头
+    # =：精确查找
+    # @：全局搜索
+    # $：正则匹配
+    search_fields = ('name', 'goods_brief', 'goods_desc')
+    # 排序字段
+    ordering_fields = ('sold_num', 'add_time')
+
 
 
 
