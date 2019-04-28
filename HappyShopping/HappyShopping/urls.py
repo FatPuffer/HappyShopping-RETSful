@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 import xadmin
-from HappyShopping.settings import MEDIA_ROOT
-from django.views.static import serve
+from django.conf import settings  # 媒体文件
+from django.views.static import serve  # 媒体文件
 from rest_framework.documentation import include_docs_urls  # 文档
 from rest_framework.routers import DefaultRouter
 
@@ -35,7 +35,7 @@ router.register(r'categorys', CategoryViewSet, base_name="categorys")
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
-    url(r'^media/(?P<path>.*)$', serve, {"document": MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT}),  # 媒体文件
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),  # 登录
 
     # 路由注册

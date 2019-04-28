@@ -58,11 +58,11 @@ from rest_framework.pagination import PageNumberPagination
 
 
 class GoodsPagination(PageNumberPagination):
-    page_size = 10  # 每页显示10条数据
+    page_size = 12  # 每页显示10条数据
     # 前端通过page_size参数动态指定向后台获取多少条数据，后台根据数目计算页数，返回相应数据
     # 如：http://127.0.0.1:8000/goods/?p=2&page_size=20
     page_size_query_param = 'page_size'
-    page_query_param = 'p'  # 查询参数显示信息
+    page_query_param = 'page'  # 查询参数显示信息
     max_page_size = 100  # 最多显示100页
 
 
@@ -103,7 +103,7 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     # $：正则匹配
     search_fields = ('name', 'goods_brief', 'goods_desc')
     # 排序字段
-    ordering_fields = ('sold_num', 'add_time')
+    ordering_fields = ('sold_num', 'shop_price')
 
 
 class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
