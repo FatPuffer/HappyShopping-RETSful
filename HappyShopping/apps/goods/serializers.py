@@ -41,7 +41,7 @@ class CategorySerializer(serializers.ModelSerializer):
     """
     商品类别序列化
     """
-    # sub_cat = CategorySerializer2(many=True)
+    sub_cat = CategorySerializer2(many=True)
 
     class Meta:
         model = GoodsCategory

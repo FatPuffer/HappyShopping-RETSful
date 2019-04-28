@@ -12,8 +12,7 @@ class GoodsCategory(models.Model):
         (2, "二级类目"),
         (3, "三级类目")
     )
-    
-    
+
     name = models.CharField(default='', max_length=30, verbose_name='类别名', help_text='类别名')
     code = models.CharField(default='', max_length=30, verbose_name='类别名code', help_text='类别名code')
     desc = models.TextField(default='', verbose_name='类别描述', help_text='类别描述')

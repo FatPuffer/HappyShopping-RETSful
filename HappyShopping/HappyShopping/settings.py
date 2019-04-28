@@ -53,17 +53,21 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'django_filters',  # 过滤器
+    'corsheaders',  # 跨域配置
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # 跨域配置
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True  # 跨域配置
 
 ROOT_URLCONF = 'HappyShopping.urls'
 
