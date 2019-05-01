@@ -19,6 +19,8 @@ from django.conf import settings  # 媒体文件
 from django.views.static import serve  # 媒体文件
 from rest_framework.documentation import include_docs_urls  # 文档
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
+from rest_framework_jwt.views import obtain_jwt_token 
 
 # from goods.views_base import GoodsListView
 # from goods.views import GoodsListView
@@ -40,6 +42,12 @@ urlpatterns = [
 
     # 路由注册
     url(r'^', include(router.urls)),
+
+    # drf自带的生成Token认证模式
+    url(r'^api-token-auth/', views.obtain_auth_token),
+
+    # jwt的认证接口:该路径需要和前端对接一致
+    url(r'^login/', obtain_jwt_token),
 
     # 文档接口
     url(r'docs/', include_docs_urls(title='乐购平台')),

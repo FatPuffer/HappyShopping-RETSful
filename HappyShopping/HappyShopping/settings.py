@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',  # 过滤器
     'corsheaders',  # 跨域配置
+    'rest_framework.authtoken',  # Token认证
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,12 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = False   # 默认是Ture，时间是utc时间，由于我们要用本地时间，所用手动修改为false！！！！
 
+# JWT认证内部调用了django的auth方法，默认使用用户名和密码登录
+# 这样一来，当我们使用手机号登录时就会验证失败
+# 因此我们需要自定义用户认证类
+AUTHENTICATION_BACKENDS = (
+    'utils.auth.CustomBackend',        
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -155,4 +162,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
  #    'PAGE_SIZE': 10        
  #}
 
+
+# Token配置
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    )
+}
+
+import datetime
+
+JWT_AUTH = {
+    # 设置过期时间
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(days=7),        
+    # 设置验证前缀，也可以设置为Token
+    "JWT_AUTH_HEADER_PREFIX": "JWT"，
+}
 

@@ -10,6 +10,7 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
     pricemin = django_filters.NumberFilter(field_name='shop_price', lookup_expr='gte')
     pricemax = django_filters.NumberFilter(field_name='shop_price', lookup_expr='lte')
 
+    # 自定义过滤方法
     top_category = django_filters.NumberFilter(method='top_category_filter')
 
     def top_category_filter(self, queryset, name, value):
