@@ -178,6 +178,11 @@ JWT_AUTH = {
     # 设置过期时间
     "JWT_EXPIRATION_DELTA": datetime.timedelta(days=7),        
     # 设置验证前缀，也可以设置为Token
-    "JWT_AUTH_HEADER_PREFIX": "JWT"，
+    "JWT_AUTH_HEADER_PREFIX": "JWT"
 }
 
+# 手机号码正则表达式
+REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}|^176\d{8}$"
+
+# 云片网设置
+APIKEY = "68257cf662560d39fad0c553c7902e1e"
