@@ -7,6 +7,8 @@ from HappyShopping.settings import APIKEY
 from random import choice
 from django.contrib.auth import get_user_model
 
+from rest_framework_jwt.serializers import jwt_encode_handler, jwt_payload_handler  # jwt生成Token模块
+
 from .serializers import SmsSerializer, UserRegSerializer
 from utils import yunpian
 from .models import VerifyCode
@@ -62,7 +64,34 @@ class SmsCodeViewSet(CreateModelMixin, viewsets.GenericViewSet):
 class UserViewSet(CreateModelMixin, viewsets.GenericViewSet):
     """
     用户注册
+    注册成功跳转至登录页面：需要重载CreateModelMixin中的create方法，将Token一起返回前端
     """
     serializer_class = UserRegSerializer
     # 返回信息
     queryset = User.objects.all()
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # 获取用户对象
+        user = self.perform_create(serializer)
+
+        # 获取要返回数据
+        re_dict = serializer.data
+
+        # 生成payload载体
+        payload = jwt_payload_handler(user)
+
+        # 利用载体生成Token并协同数据一起返回
+        re_dict['token'] = jwt_encode_handler(payload)
+
+        # 将用户名一起返回
+        re_dict['username'] = user.name if user.name else user.username
+
+        headers = self.get_success_headers(serializer.data)
+        return Response(re_dict, status=status.HTTP_201_CREATED, headers=headers)
+
+    def perform_create(self, serializer):
+        # 返回保存后的用户对象
+        return serializer.save()
