@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from goods.models import Goods, GoodsCategory
+from goods.models import Goods, GoodsCategory, GoodsImage
 
 
 # class GoodsSerializer(serializers.Serializer):
@@ -41,6 +41,7 @@ class CategorySerializer(serializers.ModelSerializer):
     """
     商品类别序列化
     """
+
     sub_cat = CategorySerializer2(many=True)
 
     class Meta:
@@ -48,9 +49,21 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class GoodsImageSerializer(serializers.ModelSerializer):
+    """
+    商品轮播图片序列化
+    """
+    class Meta:
+        model = GoodsImage
+        fields = ("image",)
+
+
 class GoodsSerializer(serializers.ModelSerializer):
-    # Goods模型类的外键，实现序列化嵌套
+    # Goods模型类的外键(商品分类)，实现序列化嵌套
     category = CategorySerializer()
+    # Goods模型类的外键(商品轮播图片)，实现序列化嵌套
+    # 该变量名于外键中 related_name 参数值要保持一致
+    images = GoodsImageSerializer(many=True)
 
     class Meta:
         model = Goods

@@ -82,7 +82,7 @@ from goods.filters import GoodsFilter
 from rest_framework import filters
 
 
-class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class GoodsListViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     商品列表页，分页，搜索，过滤，排序
     """
