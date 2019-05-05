@@ -21,7 +21,7 @@ class UserFav(models.Model):
         verbose_name = '用户收藏'
         verbose_name_plural = verbose_name
         # 联合唯一索引，当用户收藏商品重复，数据库会主动抛出异常
-        unique_together = ("user", "goods")
+        # unique_together = ("user", "goods")
 
     def __str__(self):
         return self.user.username

@@ -166,6 +166,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Token配置
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 当用户操作需要登录权限时，会出现一个简单的登录框，以供用户登录
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
