@@ -169,7 +169,7 @@ REST_FRAMEWORK = {
         # 当用户操作需要登录权限时，会出现一个简单的登录框，以供用户登录
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     )
 }
 

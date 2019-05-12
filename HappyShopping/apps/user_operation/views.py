@@ -18,6 +18,8 @@ class UserFavViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.L
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = UserFavSerializer
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    # 默认使用pk，查询的是get_queryset过滤后的内容，不用担心返回所有收藏该商品的用户对象
+    lookup_field = "goods_id"  # 根据商品收藏商品id来查找
 
     # 返回当前登录用户的收藏
     def get_queryset(self):
