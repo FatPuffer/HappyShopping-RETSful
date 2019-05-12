@@ -9,17 +9,20 @@ from utils.permissions import IsOwnerOrReadOnly  # 登录用户仅能操作自�
 from .serializers import UserFavSerializer
 
 
-class UserFavViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
+class UserFavViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin,
+                     mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     用户收藏功能
     用户收藏：发送post请求  http://127.0.0.1:8000/userfavs/1
     取消收藏：发送delete请求  http://127.0.0.1:8000/userfavs/1
     """
+    # 默认使用pk(此处验证的是登录用户id)，查询的是get_queryset过滤后的内容，不用担心返回所有收藏该商品的用户对象
+    lookup_field = "goods_id"  # 外键，数据库保存字段为xx_id,根据商品收藏商品id来查找
+    # IsAuthenticated：必须登录用户；IsOwnerOrReadOnly：必须是当前登录的用户
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = UserFavSerializer
+    # SessionAuthentication：登录后台时使用
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
-    # 默认使用pk，查询的是get_queryset过滤后的内容，不用担心返回所有收藏该商品的用户对象
-    lookup_field = "goods_id"  # 根据商品收藏商品id来查找
 
     # 返回当前登录用户的收藏
     def get_queryset(self):
